@@ -1,0 +1,174 @@
+ssn@ssn-HCL-Desktop:~/Downloads$ tar -xvf fuse-tutorial.tgz 
+fuse-tutorial/
+fuse-tutorial/security.html
+fuse-tutorial/running.html
+fuse-tutorial/callbacks.html
+fuse-tutorial/index.html
+fuse-tutorial/files.html
+fuse-tutorial/thanks.html
+fuse-tutorial/src/
+fuse-tutorial/src/params.h
+fuse-tutorial/src/COPYING.LIB
+fuse-tutorial/src/COPYING
+fuse-tutorial/src/Makefile
+fuse-tutorial/src/log.c
+fuse-tutorial/src/log.h
+fuse-tutorial/src/fuse.h
+fuse-tutorial/src/bbfs.c
+fuse-tutorial/private.html
+fuse-tutorial/unclear.html
+fuse-tutorial/init.html
+fuse-tutorial/example/
+fuse-tutorial/example/rootdir/
+fuse-tutorial/example/rootdir/bogus.txt
+fuse-tutorial/example/mountdir/
+ssn@ssn-HCL-Desktop:~/Downloads$ ls
+fuse-tutorial  fuse-tutorial.tgz
+ssn@ssn-HCL-Desktop:~/Downloads$ cd fuse-tutorial/
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial$ cd src
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/src$ ls -l
+total 148
+-rw-r--r-- 1 ssn ssn 27514 Nov 15  2012 bbfs.c
+-rw-r--r-- 1 ssn ssn 35147 Nov 15  2012 COPYING
+-rw-r--r-- 1 ssn ssn 26530 Nov 15  2012 COPYING.LIB
+-rw-r--r-- 1 ssn ssn 33964 Nov 15  2012 fuse.h
+-rw-r--r-- 1 ssn ssn  5165 Nov 15  2012 log.c
+-rw-r--r-- 1 ssn ssn   595 Nov 15  2012 log.h
+-rw-r--r-- 1 ssn ssn   669 Nov 15  2012 Makefile
+-rw-r--r-- 1 ssn ssn   860 Nov 15  2012 params.h
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/src$ pkg-config fuse --cflags
+-D_FILE_OFFSET_BITS=64 -I/usr/local/include/fuse  
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/src$ pkg-config fuse --libs
+-pthread -L/usr/local/lib -lfuse  
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/src$ cd ..
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial$ ls -l
+total 60
+-rw-r--r-- 1 ssn ssn 6426 Nov 15  2012 callbacks.html
+drwxr-xr-x 4 ssn ssn 4096 Nov 15  2012 example
+-rw-r--r-- 1 ssn ssn 2899 Nov 15  2012 files.html
+-rw-r--r-- 1 ssn ssn 6189 Nov 15  2012 index.html
+-rw-r--r-- 1 ssn ssn 2579 Nov 15  2012 init.html
+-rw-r--r-- 1 ssn ssn 2027 Nov 15  2012 private.html
+-rw-r--r-- 1 ssn ssn 3576 Nov 15  2012 running.html
+-rw-r--r-- 1 ssn ssn 6069 Nov 15  2012 security.html
+drwxr-xr-x 2 ssn ssn 4096 Nov 15  2012 src
+-rw-r--r-- 1 ssn ssn 1825 Nov 15  2012 thanks.html
+-rw-r--r-- 1 ssn ssn 6269 Nov 15  2012 unclear.html
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial$ cd src
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/src$ ls -l
+total 148
+-rw-r--r-- 1 ssn ssn 27514 Nov 15  2012 bbfs.c
+-rw-r--r-- 1 ssn ssn 35147 Nov 15  2012 COPYING
+-rw-r--r-- 1 ssn ssn 26530 Nov 15  2012 COPYING.LIB
+-rw-r--r-- 1 ssn ssn 33964 Nov 15  2012 fuse.h
+-rw-r--r-- 1 ssn ssn  5165 Nov 15  2012 log.c
+-rw-r--r-- 1 ssn ssn   595 Nov 15  2012 log.h
+-rw-r--r-- 1 ssn ssn   669 Nov 15  2012 Makefile
+-rw-r--r-- 1 ssn ssn   860 Nov 15  2012 params.h
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/src$ pkg-config fuse --cflags
+-D_FILE_OFFSET_BITS=64 -I/usr/local/include/fuse  
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/src$ pkg-config fuse --libs
+-pthread -L/usr/local/lib -lfuse  
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/src$ make
+gcc -g -Wall `pkg-config fuse --cflags` -c bbfs.c
+gcc -g -Wall `pkg-config fuse --cflags` -c log.c
+gcc -g -o bbfs bbfs.o log.o `pkg-config fuse --libs`
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/src$ ls -l
+total 268
+-rwxrwxr-x 1 ssn ssn 49910 Sep 27 02:55 bbfs
+-rw-r--r-- 1 ssn ssn 27514 Nov 15  2012 bbfs.c
+-rw-rw-r-- 1 ssn ssn 51808 Sep 27 02:55 bbfs.o
+-rw-r--r-- 1 ssn ssn 35147 Nov 15  2012 COPYING
+-rw-r--r-- 1 ssn ssn 26530 Nov 15  2012 COPYING.LIB
+-rw-r--r-- 1 ssn ssn 33964 Nov 15  2012 fuse.h
+-rw-r--r-- 1 ssn ssn  5165 Nov 15  2012 log.c
+-rw-r--r-- 1 ssn ssn   595 Nov 15  2012 log.h
+-rw-rw-r-- 1 ssn ssn 15056 Sep 27 02:55 log.o
+-rw-r--r-- 1 ssn ssn   669 Nov 15  2012 Makefile
+-rw-r--r-- 1 ssn ssn   860 Nov 15  2012 params.h
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/src$ pkg-config fuse--flags
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/src$ pkg-config fuse --cflags
+-D_FILE_OFFSET_BITS=64 -I/usr/local/include/fuse  
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/src$ pkg-config fuse --lib
+--lib: unknown option
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/src$ pkg-config fuse --libs\
+> 
+-pthread -L/usr/local/lib -lfuse  
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/src$ pkg-config fuse --libs
+-pthread -L/usr/local/lib -lfuse  
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/src$ make
+make: `bbfs' is up to date.
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/src$ ls
+bbfs    bbfs.o   COPYING.LIB  log.c  log.o     params.h
+bbfs.c  COPYING  fuse.h       log.h  Makefile
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/src$ cd  .. 
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial$ cd example/
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example$ ls
+mountdir  rootdir
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example$ ls -l 
+total 8
+drwxr-xr-x 2 ssn ssn 4096 Nov 15  2012 mountdir
+drwxr-xr-x 2 ssn ssn 4096 Nov 15  2012 rootdir
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example$ cd rootdir/
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example/rootdir$ touch myfile
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example/rootdir$ mkdir fusetest
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example/rootdir$ mkdir mydir
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example/rootdir$ 
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example/rootdir$ 
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example/rootdir$ touch fusefile
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example/rootdir$ ls -l
+total 12
+-rw-r--r-- 1 ssn ssn   13 Nov 15  2012 bogus.txt
+-rw-rw-r-- 1 ssn ssn    0 Sep 27 02:57 fusefile
+drwxrwxr-x 2 ssn ssn 4096 Sep 27 02:57 fusetest
+drwxrwxr-x 2 ssn ssn 4096 Sep 27 02:57 mydir
+-rw-rw-r-- 1 ssn ssn    0 Sep 27 02:57 myfile
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example/rootdir$ cd ..
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example$ ls -l
+total 8
+drwxr-xr-x 2 ssn ssn 4096 Nov 15  2012 mountdir
+drwxr-xr-x 4 ssn ssn 4096 Sep 27 02:57 rootdir
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example$ cd rootdir
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example/rootdir$ ls -l
+total 12
+-rw-r--r-- 1 ssn ssn   13 Nov 15  2012 bogus.txt
+-rw-rw-r-- 1 ssn ssn    0 Sep 27 02:57 fusefile
+drwxrwxr-x 2 ssn ssn 4096 Sep 27 02:57 fusetest
+drwxrwxr-x 2 ssn ssn 4096 Sep 27 02:57 mydir
+-rw-rw-r-- 1 ssn ssn    0 Sep 27 02:57 myfile
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example/rootdir$ cd .. 
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example$ cd .. 
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial$ cd example/
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example$ ../src/bbfs rootdir/ mountdir/
+about to call fuse_main
+fuse: warning: library too old, some operations may not not work
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example$ mount
+/dev/sda8 on / type ext4 (rw,errors=remount-ro)
+proc on /proc type proc (rw,noexec,nosuid,nodev)
+sysfs on /sys type sysfs (rw,noexec,nosuid,nodev)
+none on /sys/fs/cgroup type tmpfs (rw)
+none on /sys/fs/fuse/connections type fusectl (rw)
+none on /sys/kernel/debug type debugfs (rw)
+none on /sys/kernel/security type securityfs (rw)
+udev on /dev type devtmpfs (rw,mode=0755)
+devpts on /dev/pts type devpts (rw,noexec,nosuid,gid=5,mode=0620)
+tmpfs on /run type tmpfs (rw,noexec,nosuid,size=10%,mode=0755)
+none on /run/lock type tmpfs (rw,noexec,nosuid,nodev,size=5242880)
+none on /run/shm type tmpfs (rw,nosuid,nodev)
+none on /run/user type tmpfs (rw,noexec,nosuid,nodev,size=104857600,mode=0755)
+/dev/sda6 on /boot type ext4 (rw)
+rpc_pipefs on /run/rpc_pipefs type rpc_pipefs (rw)
+/dev/sr0 on /media/root/fosslab rpm last type iso9660 (ro,nosuid,nodev,uid=0,gid=0,iocharset=utf8,mode=0400,dmode=0500,uhelper=udisks2)
+gvfsd-fuse on /run/user/ssn/gvfs type fuse.gvfsd-fuse (rw,nosuid,nodev,user=ssn)
+bbfs on /home/ssn/Downloads/fuse-tutorial/example/mountdir type fuse.bbfs (rw,nosuid,nodev,user=ssn)
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example$ ls -l mountdir/
+total 12
+-rw-r--r-- 1 ssn ssn   13 Nov 15  2012 bogus.txt
+-rw-rw-r-- 1 ssn ssn    0 Sep 27 02:57 fusefile
+drwxrwxr-x 2 ssn ssn 4096 Sep 27 02:57 fusetest
+drwxrwxr-x 2 ssn ssn 4096 Sep 27 02:57 mydir
+-rw-rw-r-- 1 ssn ssn    0 Sep 27 02:57 myfile
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example$ fusermount -u mountdir
+ssn@ssn-HCL-Desktop:~/Downloads/fuse-tutorial/example$ ls -l mountdir
+total 0
+

@@ -1,0 +1,17 @@
+FTP
+
+https://www.digitalocean.com/community/articles/how-to-set-up-vsftpd-on-ubuntu-12-04
+
+1) type ftp <server ip address>
+
+find server ip address using ifconfig command
+
+2) give user name and password 
+
+3) give ls command
+
+4) give get file-name to download file to client
+
+5) type exit to exit ftp
+
+
